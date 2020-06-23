@@ -14,18 +14,18 @@ There are two docker services in `docker-compose`:
     - During the build stage, it will perform the following in order:
         - Install truffle
         - Move contract files
-        - Move React files.
+        - Move Vue files.
         - `npm ci`
     - During the run stage, it will perform the following in order:
         - truffle build
         - truffle test
         - truffle migrate
-        - copy compiled contracts to the react project
-        - run the react project
-    - Note that since we created a volume for the React project (`- ./truffledrizzle/client/src:/client/src`), the front end code supports hot editing.
+        - copy compiled contracts to the vue directory
+        - run the vue directory
+    - Note that since we created a volume for the Vue project (`- ./truffledrizzle/client/src:/client/src`), the front end code supports hot editing.
     
 A few more things worth to mention:
 
 `dev_build.sh` builds the docker images according to `docker-compose-dev.yml`
 `dev_run.sh` starts the docker-compose as defined in `docker-compose-dev.yml`
-`npm_install.sh` creates a temp node container, in case we want to modify `package-lock.json`. (This project does not require node to be installed on local machine! :)
+`npm_install.sh` creates a temp node container, in case we want to modify `package-lock.json`.
